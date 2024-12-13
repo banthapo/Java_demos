@@ -1,12 +1,16 @@
 package classes_lesson;
 
 public class Person {
-    String name;
-    String address;
-    int phone;
-    char gender;
+    private String name;
+    private String address;
+    private int phone;
+    private char gender;
 
-    public Person(String name, String address, int phone, char gender) {
+    public Person() {
+        System.out.println("Goodbye!!!");
+    }
+
+    Person(String name, String address, int phone, char gender) {
         this.name = name;
         this.address = address;
         this.phone = phone;
@@ -47,8 +51,9 @@ public class Person {
     }
 
     public String fullDetails() {
-        String fullDetails = "Name:: " + name + "; Phone:: " + phone + "; Address:: " + address + "; Gender:: "
-                + gender;
+        String fullDetails = "Name:: " + getName() + "; Phone:: " + getPhone() + "; Address:: " + getAddress()
+                + "; Gender:: "
+                + getGender();
         return fullDetails;
     }
 

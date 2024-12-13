@@ -51,7 +51,7 @@ public class Car {
     }
 
     public String fullDetails() {
-        String fullDetails = "Car name:: " + name + "; Model:: " + model + "; Number Plate:: " + numberPlate
+        String fullDetails = "Car name:: " + "Toyota" + "; Model:: " + model + "; Number Plate:: " + numberPlate
                 + "; Purchase date:: " + purchaseDate;
 
         return fullDetails;
