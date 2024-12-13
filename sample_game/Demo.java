@@ -1,11 +1,13 @@
 
+package sample_game;
+
 import java.util.*;
 
 class Demo {
 
     public static void main(String[] args) {
         System.out.println("Welcome to this wonderful GAME.");
-        System.err.println("");
+        System.out.println("");
 
         int num = (int) (Math.random() * 20);
         System.out.println("random num :: " + num);
