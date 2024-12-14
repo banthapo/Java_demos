@@ -1,4 +1,4 @@
-package inheritance;
+package inheritance_polymoph;
 
 public class Human {
     private String name;

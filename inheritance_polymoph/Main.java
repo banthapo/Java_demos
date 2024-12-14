@@ -1,4 +1,4 @@
-package inheritance;
+package inheritance_polymoph;
 
 public class Main {
     public static void main(String[] args) {
