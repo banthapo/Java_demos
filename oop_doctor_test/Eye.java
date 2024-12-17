@@ -13,7 +13,7 @@ public class Eye extends Diagnosis {
     public void eyeDetails() {
         System.out.println("Name :: " + getOrganName());
         System.out.println("Medical Condition :: " + getIllness());
-        System.out.println("Color :: " + color);
+        System.out.println("Color :: " + getColor());
     }
 
     public void options() {
@@ -21,12 +21,6 @@ public class Eye extends Diagnosis {
         System.out.println("    2. Remove the eye");
         System.out.println("");
 
-    }
-
-    public int getOption() {
-        Scanner scanner = new Scanner(System.in);
-        int opt = scanner.nextInt();
-        return opt;
     }
 
     public void handleOption(int opt, String side) {

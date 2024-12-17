@@ -14,19 +14,34 @@ public class Main {
         handlePatient(option);
     }
 
+
     private static void handleSkin() {
+        Skin skin = new Skin(null, "Skin", "Black", false, false);
+        skin.skinDetails();
+        skin.options();
+
+        int opt = getOption();
+        if (opt == 1)
+            skin.handleOption(opt);
+
+        if (opt == 6) return;
+        options();
+
+        int option = getOption();
+        handlePatient(option);
     }
 
     private static void handleStomach() {
-        Stomach stomach = new Stomach(null, "Stomach", false, null,0);
+        Stomach stomach = new Stomach(null, "Stomach", false, null, 0);
         stomach.stomachDetails();
         stomach.options();
 
-        int opt = stomach.getOption();
-        stomach.handleOption(opt);
-        options();
+        int opt = getOption();
+        if (opt == 1)
+            stomach.handleOption(opt);
 
         if (opt == 6) return;
+        options();
 
         int option = getOption();
         handlePatient(option);
@@ -38,11 +53,11 @@ public class Main {
         heart.heartDetails();
         heart.options();
 
-        int opt = heart.getOption();
+        int opt = getOption();
         heart.handleOption(opt);
-        options();
 
         if (opt == 6) return;
+        options();
 
         int option = getOption();
         handlePatient(option);
@@ -53,11 +68,11 @@ public class Main {
         rightEye.eyeDetails();
         rightEye.options();
 
-        int opt = rightEye.getOption();
+        int opt = getOption();
         rightEye.handleOption(opt, "Right");
-        options();
 
         if (opt == 6) return;
+        options();
 
         int option = getOption();
         handlePatient(option);
@@ -68,11 +83,11 @@ public class Main {
         leftEye.eyeDetails();
         leftEye.options();
 
-        int opt = leftEye.getOption();
+        int opt = getOption();
         leftEye.handleOption(opt, "Left");
-        options();
 
         if (opt == 6) return;
+        options();
 
         int option = getOption();
         handlePatient(option);
