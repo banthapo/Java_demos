@@ -10,15 +10,17 @@ public class Heart extends Diagnosis {
         this.rate = rate;
     }
 
-    public void eyeDetails() {
+    public void heartDetails() {
         System.out.println("Name :: " + getOrganName());
         System.out.println("Medical Condition :: " + getIllness());
         System.out.println("Heartbeat Rate :: " + rate);
     }
 
     public void options() {
-        System.out.println("    1. Close the eye");
-        System.out.println("    2. Remove the eye");
+        System.out.println("    1. Stop heart");
+        System.out.println("    2. Remove heart");
+        System.out.println("    3. Increase heart rate");
+        System.out.println("    4. Change heart rate");
         System.out.println("");
 
     }
@@ -29,7 +31,7 @@ public class Heart extends Diagnosis {
         return opt;
     }
 
-    public void handleOption(int opt, String side) {
+    public void handleOption(int opt) {
         switch (opt) {
             case 1: {
                 stopHeart();
@@ -41,6 +43,11 @@ public class Heart extends Diagnosis {
             }
             case 3: {
                 increaseRate();
+                break;
+            }
+            case 4: {
+                changeRate();
+                break;
             }
             default: {
                 System.out.println("No such option available.");
@@ -50,22 +57,34 @@ public class Heart extends Diagnosis {
     }
 
     public void stopHeart() {
-        System.out.println("Heart successfully stopped...");
+        System.out.println("Stomach successfully stopped...");
         System.out.println("");
 
     }
 
     public void removeHeart() {
-        System.out.println("Heart successfully removed...");
+        System.out.println("Stomach successfully removed...");
         System.out.println("");
     }
 
     public void increaseRate() {
-        rate += 10;
+        setRate(getRate() + 10);
         System.out.println("Rate is now :: " + rate + " previously " + (rate - 10));
         System.out.println("");
 
     }
+
+    public void changeRate() {
+        System.out.println("Enter heart rate value : ");
+        Scanner scanner = new Scanner(System.in);
+        int rate = scanner.nextInt();
+        setRate(rate);
+
+        System.out.println("Rate is now :: " + getRate());
+        System.out.println("");
+
+    }
+
 
     public int getRate() {
         return rate;

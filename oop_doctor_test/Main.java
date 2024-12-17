@@ -14,15 +14,38 @@ public class Main {
         handlePatient(option);
     }
 
-    private static void handleSkinEye() {
+    private static void handleSkin() {
     }
 
-    private static void handleStomachEye() {
+    private static void handleStomach() {
+        Stomach stomach = new Stomach(null, "Stomach", false, null,0);
+        stomach.stomachDetails();
+        stomach.options();
 
+        int opt = stomach.getOption();
+        stomach.handleOption(opt);
+        options();
+
+        if (opt == 6) return;
+
+        int option = getOption();
+        handlePatient(option);
     }
 
-    private static void handleHeartEye() {
 
+    private static void handleHeart() {
+        Heart heart = new Heart("Blood Pressure", "Heart", 89);
+        heart.heartDetails();
+        heart.options();
+
+        int opt = heart.getOption();
+        heart.handleOption(opt);
+        options();
+
+        if (opt == 6) return;
+
+        int option = getOption();
+        handlePatient(option);
     }
 
     public static void handleRightEye() {
@@ -31,12 +54,11 @@ public class Main {
         rightEye.options();
 
         int opt = rightEye.getOption();
-        rightEye.handleOption(opt,"Right");
+        rightEye.handleOption(opt, "Right");
         options();
 
         if (opt == 6) return;
 
-//        options();
         int option = getOption();
         handlePatient(option);
     }
@@ -47,7 +69,7 @@ public class Main {
         leftEye.options();
 
         int opt = leftEye.getOption();
-        leftEye.handleOption(opt,"Left");
+        leftEye.handleOption(opt, "Left");
         options();
 
         if (opt == 6) return;
@@ -69,15 +91,15 @@ public class Main {
                 break;
             }
             case 3: {
-                handleHeartEye();
+                handleHeart();
                 break;
             }
             case 4: {
-                handleStomachEye();
+                handleStomach();
                 break;
             }
             case 5: {
-                handleSkinEye();
+                handleSkin();
                 break;
             }
             default: {
@@ -94,9 +116,9 @@ public class Main {
 
     public static void options() {
         System.out.println("Choose an organ:");
-        System.out.println("    1. Left Diagnosis");
-        System.out.println("    2. Right Diagnosis");
-        System.out.println("    3. Heart");
+        System.out.println("    1. Left eye");
+        System.out.println("    2. Right eye");
+        System.out.println("    3. Stomach");
         System.out.println("    4. Stomach");
         System.out.println("    5. Skin");
         System.out.println("    6. Quit");
