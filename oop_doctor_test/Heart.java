@@ -14,6 +14,7 @@ public class Heart extends Diagnosis {
         System.out.println("Name :: " + getOrganName());
         System.out.println("Medical Condition :: " + getIllness());
         System.out.println("Heartbeat Rate :: " + getRate());
+
     }
 
     public void options() {

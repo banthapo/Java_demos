@@ -26,6 +26,7 @@ public class Stomach extends Diagnosis {
             System.out.println("Food :: " + getFood());
         if (duration > 0)
             System.out.println("duration :: " + getDuration() + " seconds");
+
     }
 
     public void handleOption(int opt) {

@@ -21,7 +21,7 @@ public class Main {
         skin.options();
 
         int opt = getOption();
-        if (opt == 1)
+        if (opt <= 2)
             skin.handleOption(opt);
 
         if (opt == 6) return;

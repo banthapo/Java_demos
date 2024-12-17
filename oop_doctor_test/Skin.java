@@ -21,8 +21,12 @@ public class Skin extends Diagnosis {
             System.out.println("Medical Condition :: " + getIllness());
         else
             System.out.println("Medical Condition :: Normal");
+
         System.out.println("Color :: " + getColor());
-        System.out.println("Affected :: " + isAffected());
+
+        if (healing)
+            System.out.println("Affected :: " + isAffected());
+
         if (healing)
             System.out.println("Healing :: " + isHealing());
     }
@@ -54,10 +58,13 @@ public class Skin extends Diagnosis {
             case 2: {
                 System.out.println("Healing skin...");
                 setHealing(true);
+                setAffected(false);
                 setIllness("Normal");
 
                 System.out.println("");
                 skinDetails();
+                System.out.println("");
+
             }
             case 3: {
                 setAffected(false);
@@ -79,21 +86,36 @@ public class Skin extends Diagnosis {
         infectionList();
         int opt = getOption();
 
-        if (opt == 1)
-            setIllness("Elephant pox");
-        if (opt == 2)
-            setIllness("Monkey pox");
-        if (opt == 3)
-            setIllness("Chicken pox");
-        if (opt == 4)
-            setIllness("Eczema");
-        else {
-            setAffected(false);
-            setIllness("Normal");
+        switch (opt) {
+            case 1 -> {
+                setIllness("Elephant pox");
+                setAffected(true);
+            }
+            case 2 -> {
+                setIllness("Monkey pox");
+                setAffected(true);
+            }
+            case 3 -> {
+                setIllness("Chicken pox");
+                setAffected(true);
+            }
+            case 4 -> {
+                setIllness("Eczema");
+                setAffected(true);
+            }
+            default -> {
+                setAffected(false);
+                setIllness("Normal");
+            }
         }
+        System.out.println("Skin status...");
+        System.out.println("");
+        skinDetails();
+        System.out.println("");
+
     }
 
-    public static int getOption() {
+    public int getOption() {
         Scanner scanner = new Scanner(System.in);
         int opt = scanner.nextInt();
         return opt;
