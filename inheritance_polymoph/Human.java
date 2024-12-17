@@ -13,11 +13,24 @@ public class Human {
         this.lace = lace;
     }
 
+    public Human(String name) {
+        this.name = name;
+    }
+
     public void humanData() {
         System.out.println("Name :: " + name);
         System.out.println("Age :: " + age);
         System.out.println("Gender :: " + gender);
         System.out.println("lace :: " + lace);
+    }
+
+    public boolean eat(String food) {
+        if (food == "meat") {
+            System.out.println("Man does eats :: " + food);
+            return true;
+        }
+        System.out.println("Man does not eat :: " + food);
+        return false;
     }
 
     public String getName() {
