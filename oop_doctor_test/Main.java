@@ -133,7 +133,7 @@ public class Main {
         System.out.println("Choose an organ:");
         System.out.println("    1. Left eye");
         System.out.println("    2. Right eye");
-        System.out.println("    3. Stomach");
+        System.out.println("    3. Heart");
         System.out.println("    4. Stomach");
         System.out.println("    5. Skin");
         System.out.println("    6. Quit");

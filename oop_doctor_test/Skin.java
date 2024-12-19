@@ -17,18 +17,18 @@ public class Skin extends Diagnosis {
 
     public void skinDetails() {
         System.out.println("Name :: " + getOrganName());
-        if (affected)
+        if (isAffected())
             System.out.println("Medical Condition :: " + getIllness());
         else
             System.out.println("Medical Condition :: Normal");
 
         System.out.println("Color :: " + getColor());
 
-        if (healing)
+        if (isAffected())
             System.out.println("Affected :: " + isAffected());
 
-        if (healing)
-            System.out.println("Healing :: " + isHealing());
+        if (isHealing())
+            System.out.println("Healed :: " + isHealing());
     }
 
     public void options() {
@@ -40,7 +40,8 @@ public class Skin extends Diagnosis {
     }
 
     public void infectionList() {
-        System.out.println("    1. Elephant pox]=");
+        System.out.println("Infect with :: ");
+        System.out.println("    1. Elephant pox");
         System.out.println("    2. Monkey pox");
         System.out.println("    3  Chicken pox");
         System.out.println("    4. Eczema");

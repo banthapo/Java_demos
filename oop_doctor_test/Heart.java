@@ -58,13 +58,13 @@ public class Heart extends Diagnosis {
     }
 
     public void stopHeart() {
-        System.out.println("Stomach successfully stopped...");
+        System.out.println("Heart successfully stopped...");
         System.out.println("");
 
     }
 
     public void removeHeart() {
-        System.out.println("Stomach successfully removed...");
+        System.out.println("Heart successfully removed...");
         System.out.println("");
     }
 
