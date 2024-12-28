@@ -21,6 +21,9 @@
 ## Git delete/removing and restore
     -> git restore
         => not working as expected :: no manual entry for git restore
-    ->
+    -> git rebase
+        => rebase the current branch with HEAD content and if a branch
+            is specified; the current branch is rebase with the specified branch
+            :: quite complex in details -- run git help rebase for details
 
 
