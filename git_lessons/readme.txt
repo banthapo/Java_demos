@@ -30,3 +30,5 @@
             history :: merge conflicts need be resolved
     -> git rm old-file-name new-file-name
         => renames a file in a repo/branch
+
+## This text is to be removed after reverting
