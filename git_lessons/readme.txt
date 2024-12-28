@@ -28,4 +28,5 @@
     -> git revert commit-hash
         => resets content to the commit-hash specified whilst preserving the commit
             history :: merge conflicts need be resolved
-
+    -> git rm old-file-name new-file-name
+        => renames a file in a repo/branch
