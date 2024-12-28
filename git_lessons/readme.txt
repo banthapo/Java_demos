@@ -25,5 +25,7 @@
         => rebase the current branch with HEAD content and if a branch
             is specified; the current branch is rebase with the specified branch
             :: quite complex in details -- run git help rebase for details
-
+    -> git revert commit-hash
+        => resets content to the commit-hash specified whilst preserving the commit
+            history :: merge conflicts need be resolved
 
