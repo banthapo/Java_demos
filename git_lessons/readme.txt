@@ -21,6 +21,7 @@
 ## Git delete/removing and restore
     -> git restore
         => not working as expected :: no manual entry for git restore
-    ->
-
+    -> git revert commit-hash
+        => resets content to the commit-hash specified whilst preserving the commit
+            history :: merge conflicts need be resolved
 
