@@ -45,7 +45,10 @@
 #    -> git switch -c new-branch-name
         => not working :: no longer a git command
 
-## Git delete|remove|restore|rename
+## Git delete|remove|restore|rename|merge|stash
+#    -> git merge
+        => merges branch contents by combining the current branch with source branch specified
+        => if conflict occur; resolve then commit and then run [git merge --continue
 #    -> git restore
         => not working as expected :: no manual entry for git restore
 #    -> git rebase
@@ -55,6 +58,13 @@
 #    -> git revert commit-hash
         => resets content to the commit-hash specified whilst preserving the commit
             history :: merge conflicts need be resolved
+#    -> git stash
+        => it stores changes made without actually committing them :: it stores
+            both staged and unstaged changes
+        => allows one to switch focus on tasks
+     -> git stash apply stash-name
+        => this gets the saved stash and apply it to the current content :: to get
+            the stash name run [git stash list] > this will list all of your stash names
 #    -> git mv old-file-name new-file-name
         => renames a file in a repo/branch
 #    -> git branch -m old-branch-name new-branch-name
