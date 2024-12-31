@@ -15,7 +15,7 @@
     -> git push --set-upstream origin branch-name
         => set a default remote branch, of where are to store our data online
     -> git push -u origin branch-name
-        =>
+        =
 
 ## Handling branches
     -> git branch
