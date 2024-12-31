@@ -1,5 +1,4 @@
 ### git version 2.14.3 (Apple Git-98)
-    -> git --version
 
 ## Doing global configurations
     -> git config --global user.name 'name'
@@ -10,13 +9,6 @@
 ## Committing
     -> git commit -a -m "message"
         => shortcut for staging files and committing then in one command
-
-## Git push
-    -> git push --set-upstream origin branch-name
-        => set a default remote branch, of where we are to store our data online
-    -> git push -u origin branch-name
-        => shortcut for setting an upstream branch
-    ->
 
 ## Handling branches
     -> git branch
@@ -50,7 +42,7 @@
 
 ## Other important commands
     -> git log
-        => logs the commit history into the terminal :: useful examples being - git log --oneline |
+        => logs the commit history into the terminal :: useful examples being - git log --oneline
             git log -p
     -> git status
         => reveals the staged files and those that need staging and if all files are committed,
