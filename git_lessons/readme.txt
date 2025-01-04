@@ -24,6 +24,11 @@
         => shortcut for setting an upstream branch
 #    -> git remote set-url origin repo-url
         => set the remote repository url to [repo-url]
+#    -> git push --all
+        => pushes all branch to git repo
+#    -> git push --delete branch-name
+        => this deletes the specified branch-name from remote repo :: should be done after
+            removing a branch from local branch
 
 ## Handling branches
 #    -> git branch
@@ -55,6 +60,9 @@
         => rebase the current branch with HEAD content and if a branch
             is specified; the current branch is rebase with the specified branch
             :: quite complex in details -- run git help rebase for details
+#    -> git rebase --onto [base-branch] [current-base-branch] [branch-to-be-rebase]
+        => switch the base branch from [current-base-branch] to [base-branch] in the
+            [current-branch] -- to be researched more
 #    -> git revert commit-hash
         => resets content to the commit-hash specified whilst preserving the commit
             history :: merge conflicts need be resolved
@@ -62,14 +70,19 @@
         => it stores changes made without actually committing them :: it stores
             both staged and unstaged changes
         => allows one to switch focus on tasks
-     -> git stash apply stash-name
+#     -> git stash apply stash-name
         => this gets the saved stash and apply it to the current content :: to get
-            the stash name run [git stash list] > this will list all of your stash names
+            the stash name run [git stash list] > this will list all of your stash names`1
 #    -> git mv old-file-name new-file-name
         => renames a file in a repo/branch
 #    -> git branch -m old-branch-name new-branch-name
         => renames git branch from old-branch-name to new-branch-name :: for just
-            changing the capitalization of the name on windows, use [-M]
+            changing the capitalization of the name on windows, use [-M] :: with only one name
+            it renames the current branch
+#    -> git branch --set-upstream-to=origin/branch-name
+        => another way to set an upstream branch for a current active branch
+#    -> git remote update url
+        => updates/changes the url of the remote repo
 
 ## Other important commands
 #    -> git log
@@ -85,7 +98,8 @@
         => shows remote urls for your repo
 #    -> git remote show origin
         => shows remote urls and branches used in your repo
-
+#    -> git help command
+        => this will give details to the specified command
 
 
 
