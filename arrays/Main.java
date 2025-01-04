@@ -24,7 +24,14 @@ public class Main {
 
 
         /*Using Map object */
-        usingMap();
+//        usingMap();
+
+        /* Using ArrayList with custom object/class */
+        System.out.println("Get name of student :: " + customList().get(2).getName());
+        System.out.println("Get id of student :: " + customList().get(2).getId());
+        System.out.println("Get score of student :: " + customList().get(2).getScore());
+
+
     }
 
     public static String[] modArr(String[] arr, String str) {
@@ -107,10 +114,20 @@ public class Main {
         System.out.println("Person object size :: " + person.size());
 
         System.out.println("\nChecking if object contains 'Phone' key :: " + person.containsKey("Phone"));
-        System.out.println("\nChecking if object contains value '17' :: " + person.containsValue("17" ));
+        System.out.println("\nChecking if object contains value '17' :: " + person.containsValue("17"));
 
 
         return person;
+    }
+
+    public static ArrayList<Student> customList(){
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student("Banthapo Daniel", 2, (float)2.6));
+        students.add(new Student("Chijuwa Mary", 4, (float)1.8));
+        students.add(new Student("Banda John", 7, (float)3.5));
+        students.add(new Student("Phiri James", 12, (float)2.2));
+
+        return students;
     }
 
 }
