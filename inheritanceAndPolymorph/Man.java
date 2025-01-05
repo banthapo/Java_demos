@@ -1,4 +1,4 @@
-package inheritance_polymoph;
+package inheritanceAndPolymorph;
 
 public class Man extends Human {
     private String wifeName;
