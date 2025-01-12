@@ -1,4 +1,4 @@
-package interfaceAndAbstractClasses;
+package interfaceClasses;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,7 +17,11 @@ public class Main {
         bike.price(500000);
 
         /* calling an inner class of an implemented interface */
-        BikeInterface.Sample innerInstance = new BikeInterface.Sample() ;
+        BikeInterface.Sample innerInstance = new BikeInterface.Sample(true) ;
+
+        innerInstance.needMaintenance(4000);
+
+        bike2.capacity(3);
 
     }
 }

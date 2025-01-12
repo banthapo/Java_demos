@@ -1,4 +1,4 @@
-package interfaceAndAbstractClasses;
+package interfaceClasses;
 
 public class MotorBike implements BikeInterface, BikeInterface.Demo {
     private String bland;
@@ -26,7 +26,7 @@ public class MotorBike implements BikeInterface, BikeInterface.Demo {
     }
 
     @Override
-    public void horsePower(int horsePower) {
+    public void horsePower(float horsePower) {
         System.out.println("\t\tThe motorbike runs at the power of :: " + horsePower + "\n");
     }
 

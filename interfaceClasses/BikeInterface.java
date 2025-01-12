@@ -1,4 +1,4 @@
-package interfaceAndAbstractClasses;
+package interfaceClasses;
 
 public interface BikeInterface {
     /* Interface objects act as a contract enforcer to classes that implements it
@@ -10,19 +10,39 @@ public interface BikeInterface {
 
     void price(double price);
 
-    void horsePower(int horsePower);
+    void horsePower(float horsePower);
 
     /* You cannot declare a variable in an interface */
 //    public String imei; ❌
 
     /* you can declare a class in an interface */
     class Sample {
+        private boolean innerClass;
+
+        public Sample(boolean innerClass) {
+            this.innerClass = innerClass;
+        }
+
+        public boolean isInnerClass() {
+            return innerClass;
+        }
+
+        public void setInnerClass(boolean innerClass) {
+            this.innerClass = innerClass;
+        }
+
         boolean needMaintenance(float miles) {
             boolean maintain = false;
-            if ((float) miles > 10000.5)
+            if ((float) miles > 10000.5) {
                 maintain = true;
-            if ((float) miles <= 10000.5)
+                System.out.println("Maintainance needed");
+            }
+
+            if ((float) miles <= 10000.5) {
                 maintain = false;
+                System.out.println("Not yet to be maintained");
+            }
+
             return maintain;
         }
     }
