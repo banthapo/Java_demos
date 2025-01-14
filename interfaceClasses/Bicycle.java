@@ -1,6 +1,8 @@
 package interfaceClasses;
 /* A class can implement multiple interfaces */
 public class Bicycle implements BikeInterface , Capacity{
+    /* Variables are not enforced to reflect with the implemented interface */
+
     @Override
     public void speed(int speed) {
         System.out.println("Bicycle runs at :: " + speed + "km/h\n");

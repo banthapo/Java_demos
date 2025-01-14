@@ -6,14 +6,18 @@ public interface BikeInterface {
      * particular interface
      * -> interface methods must always be public :: of which 'public' declaration
      *  may be omitted */
+
+
+    public String bland = "Honda"; //✔️️
+
+    /* You cannot declare a variable in an interface without initializing them */
+//    public String imei; ❌
+    void horsePower(float horsePower);
+
     void speed(int speed);
 
     void price(double price);
 
-    void horsePower(float horsePower);
-
-    /* You cannot declare a variable in an interface */
-//    public String imei; ❌
 
     /* you can declare a class in an interface */
     class Sample {
