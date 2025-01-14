@@ -4,7 +4,6 @@ package AbstractClasses;
 * variables without initializing them and static variables as well
 * A class can only extend one abstract class but can implement as many interfaces as required */
 public class Being extends BeingAbstract {
-
     public static String type;
     private String name;
     private String race;
