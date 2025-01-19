@@ -1,4 +1,4 @@
-package arrays;
+package arrays_n_lists;
 
 import java.util.*;
 

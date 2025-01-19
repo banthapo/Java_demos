@@ -1,4 +1,4 @@
-package arrays;
+package arrays_n_lists;
 
 public class Student {
     private String name;
