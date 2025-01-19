@@ -26,7 +26,8 @@
         => set the remote repository url to [repo-url]
 #    -> git push --all
         => pushes all branch to git repo
-#    -> git push --delete branch-name
+#    -> git push --delete origin branch-name
+#    -> git push -d origin branch-name
         => this deletes the specified branch-name from remote repo :: should be done after
             removing a branch from local branch
 
