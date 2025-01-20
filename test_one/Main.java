@@ -8,13 +8,13 @@ public class Main {
         Messages messages = new Messages();
         Options options = new Options();
 
+        contacts.addContact(new Contact("Lonje", "Banthapo","b@me.com",40, 88846764));
+        contacts.addContact(new Contact("Dan", "Banthapo","d@me.com",20, 99946764));
         greeting();
 
-//        contacts.addContact(new Contact("Lonje", "Banthapo","b@me.com",40, 88846764));
-//        contacts.addContact(new Contact("Dan", "Banthapo","d@me.com",20, 99946764));
 
 
-        contacts.viewContact();
+//        contacts.viewContact();
     }
 
     static void greeting() {
@@ -30,13 +30,12 @@ public class Main {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                System.out.println("Hello " + name + "\n");
-                            }
+                System.out.println("Hello " + name + " ...");
+
+                Options options = new Options();
+                options.handleInitialOpt();
+            }
         });
         thread.start();
-
-        Options options = new Options();
-        options.handleInitialOpt();
-
     }
 }
