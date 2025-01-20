@@ -19,8 +19,8 @@ public class Contacts implements ContactsInterface {
     }
 
     @Override
-    public void removeContact() {
-
+    public void removeContact(int i) {
+        contacts.remove(i);
     }
 
     @Override

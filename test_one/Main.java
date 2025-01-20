@@ -12,8 +12,6 @@ public class Main {
         contacts.addContact(new Contact("Dan", "Banthapo","d@me.com",20, 99946764));
         greeting();
 
-
-
 //        contacts.viewContact();
     }
 

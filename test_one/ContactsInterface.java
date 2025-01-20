@@ -5,7 +5,7 @@ public interface ContactsInterface {
 
     void addContact(Contact contact);
 
-    void removeContact();
+    void removeContact(int i);
 
     void editContact();
 }
