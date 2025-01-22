@@ -8,11 +8,12 @@ public class Main {
         Messages messages = new Messages();
         Options options = new Options();
 
-        contacts.addContact(new Contact("Lonje", "Banthapo","b@me.com",40, 88846764));
-        contacts.addContact(new Contact("Dan", "Banthapo","d@me.com",20, 99946764));
+        contacts.addContact(new Contact("Lonje", "Banthapo", "b@me.com", 40, 88846764));
+        contacts.addContact(new Contact("Dan", "Banthapo", "d@me.com", 20, 99946764));
         greeting();
 
 //        contacts.viewContact();
+
     }
 
     static void greeting() {
@@ -20,10 +21,11 @@ public class Main {
             @Override
             public void run() {
                 Scanner scanner = new Scanner(System.in);
-                System.out.print("Enter your name :: ");
-                String name = scanner.nextLine();
+                String name = null;
                 try {
-                    Thread.sleep(1500);
+                    System.out.print("Enter your name :: ");
+                    name = scanner.nextLine();
+                    Thread.sleep(1000);
                     System.out.println("");
                 } catch (Exception e) {
                     e.printStackTrace();

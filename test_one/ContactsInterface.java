@@ -1,7 +1,7 @@
 package test_one;
 
 public interface ContactsInterface {
-    void viewContact();
+    void viewContact(Contact contact);
 
     void addContact(Contact contact);
 

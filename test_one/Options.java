@@ -1,9 +1,15 @@
 package test_one;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Options {
+    public LinkedList<Message> messages = Messages.getMessages();
+    public LinkedList<Contact> contacts = Contacts.getContacts();
     private Scanner scanner = new Scanner(System.in);
 
     private void initialOpt() {
@@ -22,9 +28,14 @@ public class Options {
                 try {
                     System.out.print("Select option : ");
                     opt = scanner.nextInt();
-                } catch (Exception e) {
+                } catch (InputMismatchException e) {
                     e.printStackTrace();
+                    scanner.nextInt();
+                    handleInitialOpt();
                 }
+//                finally {
+//                    scanner.close();
+//                }
 
                 switch (opt) {
                     case 1: {
@@ -33,14 +44,14 @@ public class Options {
 
                     }
                     case 2: {
-                        messagesOpt();
+                        handleMessagesOpt();
                         break;
                     }
                     case 3: {
                         return;
                     }
                     default: {
-                        System.out.println("Wrong input");
+                        System.out.println("Wrong option, try again");
                         handleInitialOpt();
                         break;
                     }
@@ -67,8 +78,6 @@ public class Options {
     }
 
     public void showContacts() {
-        LinkedList<Contact> contacts = Contacts.getContacts();
-
         for (int i = 0; i < contacts.size(); i++) {
             Contact contact = contacts.get(i);
             System.out.println("\tContact index :: " + (i + 1));
@@ -81,12 +90,18 @@ public class Options {
         System.out.println("\t2. Return");
 
         int opt = 0;
-        System.out.print("Select option :: ");
         try {
+            System.out.print("Select option :: ");
             opt = scanner.nextInt();
-        } catch (Exception e) {
+        } catch (InputMismatchException e) {
             e.printStackTrace();
+            scanner.nextInt();
+            System.out.println("Wrong option, try again");
+            addContactOpt();
         }
+//        finally {
+//            scanner.close();
+//        }
 
         switch (opt) {
             case 1: {
@@ -98,7 +113,7 @@ public class Options {
                 break;
             }
             default: {
-                System.out.println("Wrong input");
+                System.out.println("Wrong option, try again");
                 addContactOpt();
                 break;
             }
@@ -119,12 +134,23 @@ public class Options {
         int age = scanner.nextInt();
 
         Contact contact = new Contact(firstname, surname, email, age, phone);
+        boolean contactExist = false;
+
+        for (Contact c : contacts) {
+            if (c.getPhone() == contact.getPhone()) contactExist = true;
+        }
+
+        if(contactExist){
+            System.out.println("\nContact already saved...");
+        }else{
         Contacts contacts = new Contacts();
         contacts.addContact(contact);
-        System.out.println("\nSuccessfully added contact");
+            System.out.println("\nSuccessfully added contact");
+            contacts.viewContact(contact);
+            System.out.println("*******************");
+        }
         addContactOpt();
 
-        contacts.viewContact();
     }
 
     public void searchContact() {
@@ -132,17 +158,15 @@ public class Options {
         System.out.print("Enter search text \n\t:: ");
         String searchText = scanner.next();
 
-        LinkedList<Contact> contactList = Contacts.getContacts();
-//        LinkedList<Contact> filteredList = new LinkedList<>();
-        for (int i = 0; i < contactList.size(); i++) {
-            String name = contactList.get(i).getFirstName() + " " + contactList.get(i).getSurname();
-            String email = contactList.get(i).getEmail();
-            Long phone = contactList.get(i).getPhone();
+        for (int i = 0; i < contacts.size(); i++) {
+            String name = contacts.get(i).getFirstName() + " " + contacts.get(i).getSurname();
+            String email = contacts.get(i).getEmail();
+            Long phone = contacts.get(i).getPhone();
 
             boolean found = name.contains(searchText) || email.contains(searchText) || phone.toString().contains(searchText);
 
             if (found) {
-                Contact contact = contactList.get(i);
+                Contact contact = contacts.get(i);
                 System.out.println("\tContact index :: " + (i + 1));
                 contactDetails(contact);
             }
@@ -151,25 +175,21 @@ public class Options {
     }
 
     public void deleteContact() {
-        System.out.println("\nEnter contact name to delete...");
-        System.out.print("Enter search text \n\t:: ");
+        System.out.println("\nEnter contact name to delete :: ");
         String searchText = scanner.next();
         boolean found = false;
 
-        LinkedList<Contact> contactList = Contacts.getContacts();
-        for (int i = 0; i < contactList.size(); i++) {
-            String firstname = contactList.get(i).getFirstName();
-            String surname = contactList.get(i).getSurname();
+        for (int i = 0; i < contacts.size(); i++) {
+            String firstname = contacts.get(i).getFirstName();
+            String surname = contacts.get(i).getSurname();
 
-            found = firstname.toLowerCase().contains(searchText.toLowerCase()) ||
-                    surname.toLowerCase().contains(searchText.toLowerCase());
+            found = firstname.toLowerCase().contains(searchText.toLowerCase()) || surname.toLowerCase().contains(searchText.toLowerCase());
 
             if (found) {
-                ContactsInterface contacts = new Contacts();
                 System.out.println("\nSuccessfully deleted contact...\n");
-                contactDetails(contactList.get(i));
-                contacts.removeContact(i);
-                i = contactList.size();
+                contactDetails(contacts.get(i));
+                contacts.remove(i);
+                i = contacts.size();
             }
         }
 
@@ -187,9 +207,15 @@ public class Options {
         try {
             System.out.print("Select option : ");
             opt = scanner.nextInt();
-        } catch (Exception e) {
+        } catch (InputMismatchException e) {
             e.printStackTrace();
+            scanner.nextInt();
+            System.out.println("Wrong option, try again");
+            handleContactsOpt();
         }
+//        finally {
+//            scanner.close();
+//        }
 
         switch (opt) {
             case 1: {
@@ -213,8 +239,9 @@ public class Options {
                 break;
             }
             default: {
-                System.out.println("Wrong input");
+                System.out.println("Wrong option, try again");
                 handleContactsOpt();
+                break;
             }
         }
 
@@ -224,7 +251,100 @@ public class Options {
         System.out.println("\nManage messages...");
         System.out.println("\t1. View messages list");
         System.out.println("\t2. Send message");
-        System.out.println("\t5. Return to previous menu\n");
+        System.out.println("\t3. Return to previous menu\n");
+    }
+
+    public void messageDetails(Message msg) {
+        System.out.println("\tReceiver :: " + msg.getFirstName() + " " + msg.getSurname());
+        System.out.println("\tPhone :: " + msg.getPhone());
+        System.out.println("\t\tMessage => " + msg.getMsg());
+        System.out.println("\t\t\tDate => " + msg.getDate());
+    }
+
+    public void viewMessages() {
+
+        if (messages.size() == 0) {
+            System.out.println("\n0 Messages found");
+            handleMessagesOpt();
+        }
+
+        System.out.println("\nMessages...");
+        for (int i = 0; i < messages.size(); i++) {
+            messageDetails(messages.get(i));
+        }
+        handleMessagesOpt();
+    }
+
+    void sendMsg() {
+        System.out.println("Select contact: using index");
+        showContacts();
+
+        int index = 0;
+        String msg = null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-mm-yy");
+        Date date = new Date();
+        System.out.println(date);
+        try {
+            System.out.print("Index :: ");
+            index = scanner.nextInt();
+            System.out.println("Type message :: ");
+            System.out.print("\t=> ");
+            msg = scanner.next();
+        } catch (InputMismatchException e) {
+            e.printStackTrace();
+            scanner.nextInt();
+        }
+
+        if (contacts.get(index - 1) == null) {
+            System.out.println("Contact not available");
+            handleMessagesOpt();
+        } else {
+            Contact contact = contacts.get(index - 1);
+            Message message = new Message(contact.getFirstName(), contact.getSurname(), contact.getEmail(), contact.getAge(),
+                    contact.getPhone(), msg, date);
+            messages.add(message);
+            System.out.println("Message sent successfully...\n");
+            handleMessagesOpt();
+        }
+
+    }
+
+    public void handleMessagesOpt() {
+        messagesOpt();
+        int opt = 0;
+        try {
+            System.out.print("Select option :: ");
+            opt = scanner.nextInt();
+        } catch (Exception e) {
+            e.printStackTrace();
+            scanner.nextInt();
+            System.out.println("Wrong input, try again");
+            handleMessagesOpt();
+        }
+//        finally {
+//            scanner.close();
+//        }
+
+        switch (opt) {
+            case 1: {
+                viewMessages();
+                break;
+            }
+            case 2: {
+                sendMsg();
+                break;
+            }
+            case 3: {
+                handleInitialOpt();
+                break;
+            }
+            default: {
+                System.out.println("Wrong input, try again");
+                handleMessagesOpt();
+                break;
+            }
+        }
+
     }
 
 

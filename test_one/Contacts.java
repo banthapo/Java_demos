@@ -28,7 +28,10 @@ public class Contacts implements ContactsInterface {
 
     }
 
-    public void viewContact() {
-        System.out.println(contacts.size());
+    public void viewContact(Contact contact) {
+        System.out.println("Name :: " + contact.getFirstName() + " " + contact.getSurname());
+        System.out.println("Email :: " + contact.getEmail());
+        System.out.println("Phone :: " + contact.getPhone());
+        System.out.println("Age :: " + contact.getAge() + "\n");;
     }
 }
