@@ -6,14 +6,26 @@ public class Main {
     public static void main(String[] args) {
         Contacts contacts = new Contacts();
         Messages messages = new Messages();
-        Options options = new Options();
+        Options  options = new Options();
 
         contacts.addContact(new Contact("Lonje", "Banthapo", "b@me.com", 40, 88846764));
         contacts.addContact(new Contact("Dan", "Banthapo", "d@me.com", 20, 99946764));
         greeting();
 
-//        contacts.viewContact();
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(120000);
+                    System.out.println("\n\n\t****System timeout!!!****");
 
+                    System.exit(0);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        t.start();
     }
 
     static void greeting() {

@@ -2,10 +2,7 @@ package test_one;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.InputMismatchException;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Options {
     public LinkedList<Message> messages = Messages.getMessages();
@@ -140,11 +137,11 @@ public class Options {
             if (c.getPhone() == contact.getPhone()) contactExist = true;
         }
 
-        if(contactExist){
+        if (contactExist) {
             System.out.println("\nContact already saved...");
-        }else{
-        Contacts contacts = new Contacts();
-        contacts.addContact(contact);
+        } else {
+            Contacts contacts = new Contacts();
+            contacts.addContact(contact);
             System.out.println("\nSuccessfully added contact");
             contacts.viewContact(contact);
             System.out.println("*******************");
@@ -158,19 +155,24 @@ public class Options {
         System.out.print("Enter search text \n\t:: ");
         String searchText = scanner.next();
 
+        boolean found = false;
+        List<Contact> filteredContacts = new ArrayList<>();
         for (int i = 0; i < contacts.size(); i++) {
             String name = contacts.get(i).getFirstName() + " " + contacts.get(i).getSurname();
             String email = contacts.get(i).getEmail();
             Long phone = contacts.get(i).getPhone();
 
-            boolean found = name.contains(searchText) || email.contains(searchText) || phone.toString().contains(searchText);
+            found = name.contains(searchText) || email.contains(searchText) || phone.toString().contains(searchText);
 
             if (found) {
                 Contact contact = contacts.get(i);
                 System.out.println("\tContact index :: " + (i + 1));
+                filteredContacts.add(contact);
                 contactDetails(contact);
+                System.out.println("\t******************");
             }
         }
+       if(filteredContacts.size() == 0) System.out.println("No such contact available\n"); ;
         handleContactsOpt();
     }
 
@@ -220,6 +222,7 @@ public class Options {
         switch (opt) {
             case 1: {
                 showContacts();
+                handleContactsOpt();
                 break;
             }
             case 2: {
@@ -271,6 +274,7 @@ public class Options {
         System.out.println("\nMessages...");
         for (int i = 0; i < messages.size(); i++) {
             messageDetails(messages.get(i));
+            System.out.println("\t**********************");
         }
         handleMessagesOpt();
     }
