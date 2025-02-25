@@ -8,11 +8,11 @@
 #    -> git config --global init.defaultBranch main
 
 ## Committing
-    -> git add .
+#    -> git add .
         => stages all changes in that current branch
-    -> git commit -m "message"
+#    -> git commit -m "message"
         => commits all staged files to the repo
-    -> git commit -a -m "message"
+#    -> git commit -a -m "message"
         => shortcut for staging files and committing then in one command
 
 ## Git push
